@@ -1,0 +1,40 @@
+using System;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = { 1, 2, 3, 4, 5, 2, 3, 4, 6 };
+            int[] array1 = { 3, 4, 5 };
+            bool result = false;
+            Console.WriteLine(IsArrayContains(array,array1));
+        }
+        static bool IsArrayContains(int[] array,int[] array1)
+        {
+            int i = 0;
+            int j = 0;
+            bool result = false;
+            while(i<array.Length && j < array1.Length)
+            {
+                if (array[i] == array1[j])
+                {
+                    i++;
+                    j++;
+                    if (j == array1.Length)
+                    {
+                        result = true;
+                    }
+
+                }
+                else
+                {
+                    i = i - j + 1;
+                    j = 0;
+                }
+            }
+            return result;
+        } 
+    }
+}
